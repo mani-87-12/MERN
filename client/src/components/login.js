@@ -64,7 +64,7 @@ import { useState } from "react";
         e.preventDefault();
         try{
         const response=await axios.post("http://localhost:3001/user/login",form)
-        console.log("Login Successfull!",response.body)
+        console.log("Login Successfull!",response.data)
         setLogin("Login Success!")
         setTable([...table, form]);
         setForm({

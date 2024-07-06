@@ -35,9 +35,9 @@ router.post("/login",async (req,res)=>{
         }`
     })
     if(errors){
-       return res.status(404).send(errors)
+       return res.status(404).send(errors[0].message)
     }
-    res.status(201).send(data)
+    res.status(201).send(data.getUser[0])// to return only id syntax is data.getUser[0].id
     }
     catch(err){
         res.status(500).send(err.message)

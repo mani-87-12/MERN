@@ -13,7 +13,10 @@ const resolvers={
                 const user=await User.find(
                     {email:new RegExp(`^${email}$`,'i'),
                     password:new RegExp(`^${password}$`,'i')}) // `^${}$ this is used for exact match
-                    return user;
+                if(user.length === 0){
+                    throw new Error("Email or Password is Invalid!")
+                }else{
+                return user;}
             }catch(err){
                 throw Error(err.message)
             }
@@ -44,10 +47,10 @@ const resolvers={
         }
     }
     },
-    User:{// to return something rather than null
+   /*  User:{// to return something rather than null
         email:(parent)=>parent.email || "",
         password:(parent)=>parent.password || "",
         id:(parent)=>parent.id || "",
-    }
+    } */
 }
 module.exports=resolvers;

@@ -61,7 +61,7 @@
         password: ''
       });
       const [tableData, setTable] = useState([]);
-    
+      const [isvalid,setValid]=useState()
       function handleChange(e) {
         const { name, value } = e.target;
         setForm({ ...formData, [name]: value });
@@ -73,6 +73,7 @@
           const response = await axios.post("http://localhost:3001/user/register", formData);
           console.log("Successfully registered!", response.data);
           setTable([...tableData, formData]);
+          setValid("Registration Successfull!")
           setForm({
             name: '',
             email: '',
@@ -89,6 +90,8 @@
             onSubmit={handleSubmit}
             className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-md mx-auto mt-40 animate-slide-in"
           >
+            <h1 className="text-white text-3xl font-bold mb-4 text-center">Register</h1>
+            <h2 className="text-white text-3xl font-bold mb-4 text-center">{isvalid}</h2>
             <div className="mb-4">
               <label className="block text-white text-sm font-bold mb-2" htmlFor="name">
                 Name
