@@ -1,0 +1,6 @@
+#we write the branches which we should  not add into git,bcz theose branches contains library which will be high size
+#Eg:the code we write occupies only in MB's but the library occupies in GB's
+
+
+**/node_modules
+**/build

@@ -1,0 +1,31 @@
+# version: '3.8'
+
+# services:
+#   server:
+#     build: ./server
+#     container_name: server 
+#     ports:
+#       - "3001:3001"
+#     environment: 
+#       - MONGODB_URI=${MONGODB_URI}
+#   client:
+#     build: ./client
+#     container_name: client
+#     ports :
+#     - "3000:80" 
+
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    container_name: server 
+    ports:
+      - "3001:3001"
+    environment: 
+      -  MONGODB_URI=${MONGODB_URI}
+  client:
+    build: ./client
+    container_name: client
+    ports :
+    - "3000:80"
